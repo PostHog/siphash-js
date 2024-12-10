@@ -1,5 +1,4 @@
-siphash.js
-==========
+# siphash.js
 
 A pure Javascript implementation of
 [SipHash](https://www.aumasson.jp/siphash/siphash.pdf)
@@ -12,8 +11,7 @@ A pure Javascript implementation of
 
 This package also includes implementations of SipHash-1-3, SipHash128, and SipHash128-1-3.
 
-Installation
-------------
+## Installation
 
 Server-side installation (io.js/nodejs):
 
@@ -25,14 +23,13 @@ or use Bower:
 
     $ bower install siphash
 
-Usage
------
+## Usage
 
 ```javascript
 var siphash = require("siphash"),
-    key = siphash.string16_to_key("This is the key!"),
-    message = "Short test message",
-    hash_hex = siphash.hash_hex(key, message);
+  key = siphash.string16_to_key("This is the key!"),
+  message = "Short test message",
+  hash_hex = siphash.hash_hex(key, message);
 ```
 
 A key is an array of 4 integers, and each of them will be clamped to
@@ -42,9 +39,9 @@ For a random key, just generate 4 random integers instead of calling
 
 ```javascript
 var siphash = require("siphash"),
-    key = [ 0xdeadbeef, 0xcafebabe, 0x8badf00d, 0x1badb002 ],
-    message = "Short test message",
-    hash_hex = siphash.hash_hex(key, message);
+  key = [0xdeadbeef, 0xcafebabe, 0x8badf00d, 0x1badb002],
+  message = "Short test message",
+  hash_hex = siphash.hash_hex(key, message);
 ```
 
 The 64-bit hash can also be obtained as two 32-bit values with
@@ -52,31 +49,29 @@ The 64-bit hash can also be obtained as two 32-bit values with
 
 ```javascript
 var siphash = require("siphash"),
-    key = [ 0xdeadbeef, 0xcafebabe, 0x8badf00d, 0x1badb002 ],
-    message = "Short test message",
-    hash = siphash.hash(key, message),
-    hash_msb = hash.h,
-    hash_lsb = hash.l;
+  key = [0xdeadbeef, 0xcafebabe, 0x8badf00d, 0x1badb002],
+  message = "Short test message",
+  hash = siphash.hash(key, message),
+  hash_msb = hash.h,
+  hash_lsb = hash.l;
 ```
 
 A 53-bit unsigned integer can be obtained with `hash_uint(key, message)`:
 
 ```javascript
 var siphash = require("siphash"),
-    key = siphash.string16_to_key("0123456789ABCDEF"),
-    message = "Short test message",
-    index = siphash.hash_uint(key, message);
+  key = siphash.string16_to_key("0123456789ABCDEF"),
+  message = "Short test message",
+  index = siphash.hash_uint(key, message);
 ```
 
-SipHash-1-3
------------
+## SipHash-1-3
+
 SipHash-1-3 is a faster variant of SipHash-2-4 with fewer rounds, which is still believed to be secure
 enough for typical uses. This variant is available here:
 [siphash13.js](https://raw.githubusercontent.com/jedisct1/siphash-js/master/lib/siphash13.js.min)
 
-
-SipHash-double
---------------
+## SipHash-double
 
 Although not part of the module, an implementation of SipHash with
 128-bit output is also available:
