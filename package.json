@@ -11,7 +11,7 @@
     "crypto"
   ],
   "license": "BSD-2-Clause",
-  "main": "index.js",
+  "main": "lib/siphash.js",
   "name": "@posthog/siphash",
   "repository": {
     "type": "git",
