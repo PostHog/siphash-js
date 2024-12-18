@@ -11,6 +11,9 @@ A pure Javascript implementation of
 
 This package also includes an implementation of SipHash128.
 
+## Fork notes
+This package is a fork of https://github.com/jedisct1/siphash-js
+
 ## Installation
 
 Server-side installation (nodejs):
